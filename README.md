@@ -72,7 +72,7 @@ The call to `getInstitutions` returns an array of institutions with the followin
     country: string
     logo_url: string
 
-    // A sample response is shown is JSON below
+    // A sample response is shown in JSON below
 
     [
         {
