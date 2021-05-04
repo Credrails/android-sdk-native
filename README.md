@@ -50,6 +50,8 @@ All statement submissions must have an associated session Id. Use the code snipp
 
         val sessionId = SessionsManager.createSession(params);
 
+        // sample session Id: 7b2967c1-7d77-4c8c-808f-d74d1e155a4d
+
 The call to `SessionsManager.createSession` returns a session Id. This Id is required for statement submission in subsequest steps.
 
 ### 4. List Institutions
@@ -69,6 +71,23 @@ The call to `getInstitutions` returns an array of institutions with the followin
     name: string
     country: string
     logo_url: string
+
+    // A sample response is shown is JSON below
+
+    [
+        {
+            "code": "ng.gtbank",
+            "name": "Guaranty Trust Bank",
+            "country": "ng",
+            "logo_url" "https://api.credrails.com/banks/logos/gtb_ng"
+        },
+        {
+            "code": "ke.equity",
+            "name": "Equity Bank",
+            "country": "ke",
+            "logo_url" "https://api.credrails.com/banks/logos/equity_ke"
+        }
+    ]
 
 #### 5. Submit Statement
 
