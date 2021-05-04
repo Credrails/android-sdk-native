@@ -102,4 +102,18 @@ Use the code snippet below to request for a customer statement
 
     val validationResult = SubmissionsManager.validate(params);
 
+    // Sample successful response:
+
+    {
+        "result": "success",
+        "message": "validation successful, statement generation started."
+    }
+
+    // Sample error response:
+
+    {
+        "result": "error",
+        "message": "validation failed, invalid log in details."
+    }
+
 On successful validation a statement is generated and sent to a webhook or email address associated with the supplied API Key.
