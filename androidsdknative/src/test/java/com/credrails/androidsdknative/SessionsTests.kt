@@ -5,17 +5,12 @@ import org.junit.Test
 
 import org.junit.Assert.*
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-class ExampleUnitTest {
+class SessionsTests {
 
     @Test
     fun canCreate_Session() {
 
-        // create
+        // Arrange
         val params  =
         SessionsParameter.Builder()
                      .setEmail("johndoe@example.com")
@@ -24,9 +19,11 @@ class ExampleUnitTest {
                      .Build();
 
         val manager = SessionsManager();
+
+        // Act
         val res = manager.createSession(params);
 
-
-        assertEquals(4, 2 + 2)
+        // Assert
+        assertTrue(res.contains("session_id"));
     }
 }
