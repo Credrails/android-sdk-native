@@ -1,5 +1,9 @@
 package com.credrails.androidsdknative;
 
+import com.google.gson.Gson;
+
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -38,34 +42,29 @@ public class CredrailsAPIClient {
     }
 
     public static HttpURLConnection sendPostRequest(String requestURL,
-                                                    Map<String, String> params) throws IOException {
+                                                    Map<String, Object> params) throws IOException {
         URL url = new URL(requestURL);
         httpConn = (HttpURLConnection) url.openConnection();
+        httpConn.setRequestProperty("Content-Type", "application/json; utf-8");
+        httpConn.setRequestProperty("api_key", "XwS1FoCFkGEgIo6lcGM5zR5WFDymnJW0/gh7ZLPhPcc=");
         httpConn.setUseCaches(false);
 
         httpConn.setDoInput(true); // true indicates the server returns response
 
-        StringBuffer requestParams = new StringBuffer();
 
         if (params != null && params.size() > 0) {
 
             httpConn.setDoOutput(true); // true indicates POST request
 
             // creates the params string, encode them using URLEncoder
-            Iterator<String> paramIterator = params.keySet().iterator();
-            while (paramIterator.hasNext()) {
-                String key = paramIterator.next();
-                String value = params.get(key);
-                requestParams.append(URLEncoder.encode(key, "UTF-8"));
-                requestParams.append("=").append(
-                        URLEncoder.encode(value, "UTF-8"));
-                requestParams.append("&");
-            }
+            Gson gson = new Gson();
+            String json = gson.toJson(params);
+
 
             // sends POST data
             OutputStreamWriter writer = new OutputStreamWriter(
                     httpConn.getOutputStream());
-            writer.write(requestParams.toString());
+            writer.write(json);
             writer.flush();
         }
 

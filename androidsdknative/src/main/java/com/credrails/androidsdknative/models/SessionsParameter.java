@@ -27,9 +27,9 @@ public class SessionsParameter {
 
     public static class Builder {
 
-        public String userReference;
-        public String email;
-        public String name;
+        private String userReference;
+        private String email;
+        private String name;
 
         public  Builder setUserReference(String userReference) {
 
