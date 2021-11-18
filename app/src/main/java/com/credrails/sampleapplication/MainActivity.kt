@@ -13,5 +13,17 @@ class MainActivity : AppCompatActivity() {
                 this,
                 "Hello World"
         );
+
+       /* val params = SessionParameters.Builder()
+            .setUserReference("user-reference")
+            .setEmail("johndoe@gmail.com")
+            .setName("John Doe")
+            .build();
+
+        val sessionId = SessionsManager.createSession(params);*/
+
+        // sample session Id: 7b2967c1-7d77-4c8c-808f-d74d1e155a4d
+
+
     }
 }
